@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model product {
+  id       Int     @id @default(autoincrement())
+  name     String  @db.VarChar(50)
+  brand    String  @db.VarChar(50)
+  category String  @db.VarChar(50)
+  weight   String  @db.VarChar(30)
+  price    Decimal @db.Decimal(10, 0)
+
+  product_image   product_image?
+  daily_product   daily_product?
+  product_guesses product_guesses[]
+  image_guesses   image_guesses[]
+  daily_image     daily_image[]
+}
+
+model product_image {
+  product_id Int    @id
+  image_url  String @db.VarChar(50)
+
+  product product @relation(fields: [product_id], references: [id])
+}
+
+model daily_product {
+  product_id   Int      @id
+  product_date DateTime @db.Date
+
+  product product @relation(fields: [product_id], references: [id])
+}
+
+model daily_image {
+  product_id Int      @id
+  image_date DateTime @db.Date
+
+  product product @relation(fields: [product_id], references: [id])
+}
+
+model product_guesses {
+  user_id    Int
+  product_id Int
+  name       String  @db.VarChar(50)
+  brand      String  @db.VarChar(50)
+  category   String  @db.VarChar(50)
+  weight     String  @db.VarChar(20)
+  price      Decimal @db.Decimal(10, 0)
+
+  product product @relation(fields: [product_id], references: [id])
+
+  @@id([user_id, product_id])
+}
+
+model image_guesses {
+  user_id    Int
+  product_id Int
+  name       String @db.VarChar(50)
+
+  product product @relation(fields: [product_id], references: [id])
+
+  @@id([user_id, product_id])
+}
