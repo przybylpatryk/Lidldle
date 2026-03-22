@@ -4,7 +4,9 @@ import {
     getProductById,
     createProduct,
     updateProduct,
-    deleteProduct, getRandomProduct,
+    deleteProduct,
+    getRandomProduct,
+    getProductsBySearch
 } from '../controllers/productController';
 
 const router = Router();

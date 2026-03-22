@@ -12,6 +12,38 @@ export const getAllProducts = async (req: Request, res: Response) => {
     }
 };
 
+export const getProductsBySearch = async (req: Request, res: Response) => {
+    try{
+        const {search} = req.query;
+
+        if (!search ||typeof search !== 'string') {
+            return res.status(400).json({ error: 'Wyszukanie jest wymagane typu string' });
+        }
+
+        const products = await prisma.product.findMany({
+            where: {
+                name:{
+                    startsWith: search,
+                    mode: 'insensitive',
+                },
+            },
+            select: {
+                id: true,
+                name: true,
+            },
+            orderBy: {
+                name: 'asc',
+            }
+        });
+
+        res.json(products);
+    }catch(error) {
+        console.error(error);
+        res.status(500).json({error:'Nie udało się pobrać produktów'});
+    }
+
+}
+
 export const getRandomProduct = async (req: Request, res: Response) => {
     const { _min, _max } = await prisma.product.aggregate({
         _min: { id: true },
