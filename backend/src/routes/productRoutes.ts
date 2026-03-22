@@ -11,6 +11,7 @@ const router = Router();
 
 router.get('/', getAllProducts);
 router.get('/randomProduct', getRandomProduct);
+router.get('/search', getProductsBySearch);
 router.get('/:id', getProductById);
 router.post('/', createProduct);
 router.put('/:id', updateProduct);
