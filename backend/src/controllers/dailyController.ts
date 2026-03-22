@@ -77,6 +77,14 @@ export const deleteAllDaily = async (req: Request, res: Response) => {
     }
 };
 
+export const deleteGuesses = async (req: Request, res: Response) => {
+    await prisma.product_guesses.deleteMany({})
+}
+
+export const deleteImageGuesses = async (req: Request, res: Response) => {
+    await prisma.image_guesses.deleteMany({})
+}
+
 export const deleteDailyById = async (req: Request, res: Response) => {
     try {
         const product_id = parseInt(req.params.product_id);
@@ -145,3 +153,73 @@ export const addRandomDaily = async (req: Request, res: Response) => {
         res.status(500).json({ error: 'Nie udało się wylosować produktu dnia' });
     }
 };
+
+export const getUserGuesses = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const idn = Number(id);
+    const guesses = await prisma.product_guesses.findMany({
+        where: { user_id: idn}
+    })
+    res.json(guesses);
+}
+
+export const addGuess = async (req: Request, res: Response) => {
+    try {
+        const { name } = req.params;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const { userId } = parseInt(req.params.userId);
+        const product = await prisma.product.findFirst({
+            where: { name: name },
+        })
+
+        const guess = await prisma.product_guesses.create({
+            data: {
+                user_id: userId,
+                product_id: product.id,
+                name: product.name,
+                brand: product.brand,
+                category: product.category,
+                weight: product.weight,
+                price: product.price,
+            }
+        })
+        res.json(guess);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+
+export const getUserImageGuesses = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const idn = Number(id);
+    const guesses = await prisma.image_guesses.findMany({
+        where: { user_id: idn}
+    })
+    res.json(guesses);
+}
+
+export const addImageGuess = async (req: Request, res: Response) => {
+    try {
+        const { name } = req.params;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const { userId } = parseInt(req.params.userId);
+        const product = await prisma.product.findFirst({
+            where: { name: name },
+        })
+
+        const guess = await prisma.image_guesses.create({
+            data: {
+                user_id: userId,
+                product_id: product.id,
+                name: product.name,
+            }
+        })
+        res.json(guess);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}

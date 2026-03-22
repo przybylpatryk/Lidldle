@@ -4,12 +4,13 @@ import {
     getProductById,
     createProduct,
     updateProduct,
-    deleteProduct,
+    deleteProduct, getRandomProduct,
 } from '../controllers/productController';
 
 const router = Router();
 
 router.get('/', getAllProducts);
+router.get('/randomProduct', getRandomProduct);
 router.get('/:id', getProductById);
 router.post('/', createProduct);
 router.put('/:id', updateProduct);

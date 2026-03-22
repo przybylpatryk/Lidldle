@@ -12,6 +12,24 @@ export const getAllProducts = async (req: Request, res: Response) => {
     }
 };
 
+export const getRandomProduct = async (req: Request, res: Response) => {
+    const { _min, _max } = await prisma.product.aggregate({
+        _min: { id: true },
+        _max: { id: true },
+    });
+
+    if (_min.id === null || _max.id === null) {
+        return null;
+    }
+
+    const randomId = Math.floor(Math.random() * (Number(_max.id) - Number(_min.id) + 1)) + Number(_min.id);
+    const product = await prisma.product.findUnique({
+        where: { id: randomId }
+    });
+
+    res.json(product);
+}
+
 export const getProductById = async (req: Request, res: Response) => {
     try {
         const id = parseInt(req.params.id);
