@@ -4,11 +4,7 @@ import { ProductBody } from '../types';
 
 export const getAllProducts = async (req: Request, res: Response) => {
     try {
-        const products = await prisma.product.findMany({
-            include: {
-                product_image: true,
-            },
-        });
+        const products = await prisma.product.findMany();
         res.json(products);
     } catch (error) {
         console.error(error);
@@ -25,9 +21,6 @@ export const getProductById = async (req: Request, res: Response) => {
 
         const product = await prisma.product.findUnique({
             where: { id },
-            include: {
-                product_image: true,
-            },
         });
 
         if (!product) {

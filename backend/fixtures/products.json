@@ -1,18 +1,62 @@
 [
-  {
-    "name": "Jablko",
-    "brand": "Lidl",
-    "category": "Owoce",
-    "price": 1.99,
-    "weight": "lekkie",
-    "imageUrl": "/images/apple.png"
-  },
-  {
-    "name": "Banan",
-    "brand": "Lidl",
-    "category": "Owoce",
-    "price": 1.98,
-    "weight": "lekkie",
-    "imageUrl": "/images/banana.png"
-  }
+  {"name":"Jabłko","brand":"Lidl","category":"Owoce","price":2.39,"weight":"1 kg","imageUrl":"/images/apple.png"},
+  {"name":"Banan","brand":"Lidl","category":"Owoce","price":5.79,"weight":"1 kg","imageUrl":"/images/banana.png"},
+  {"name":"Pomarańcza","brand":"Lidl","category":"Owoce","price":4.69,"weight":"1 kg","imageUrl":"/images/orange.png"},
+  {"name":"Gruszka","brand":"Lidl","category":"Owoce","price":5.29,"weight":"1 kg","imageUrl":"/images/pear.png"},
+  {"name":"Winogrona","brand":"Lidl","category":"Owoce","price":8.49,"weight":"500 g","imageUrl":"/images/grapes.png"},
+  {"name":"Truskawki","brand":"Lidl","category":"Owoce","price":9.79,"weight":"500 g","imageUrl":"/images/strawberry.png"},
+  {"name":"Borówki","brand":"Lidl","category":"Owoce","price":11.29,"weight":"300 g","imageUrl":"/images/blueberry.png"},
+
+  {"name":"Ziemniaki","brand":"Lidl","category":"Warzywa","price":2.19,"weight":"1 kg","imageUrl":"/images/potato.png"},
+  {"name":"Marchew","brand":"Lidl","category":"Warzywa","price":1.89,"weight":"1 kg","imageUrl":"/images/carrot.png"},
+  {"name":"Cebula","brand":"Lidl","category":"Warzywa","price":2.59,"weight":"1 kg","imageUrl":"/images/onion.png"},
+  {"name":"Papryka","brand":"Lidl","category":"Warzywa","price":7.59,"weight":"500 g","imageUrl":"/images/pepper.png"},
+  {"name":"Pomidor","brand":"Lidl","category":"Warzywa","price":6.79,"weight":"1 kg","imageUrl":"/images/tomato.png"},
+  {"name":"Ogórek","brand":"Lidl","category":"Warzywa","price":3.79,"weight":"1 szt","imageUrl":"/images/cucumber.png"},
+  {"name":"Sałata","brand":"Lidl","category":"Warzywa","price":2.99,"weight":"1 szt","imageUrl":"/images/lettuce.png"},
+
+  {"name":"Mleko 1.5%","brand":"Pilos","category":"Nabiał","price":3.19,"weight":"1 l","imageUrl":"/images/milk.png"},
+  {"name":"Jogurt naturalny","brand":"Pilos","category":"Nabiał","price":1.29,"weight":"200 g","imageUrl":"/images/yogurt.png"},
+  {"name":"Jogurt owocowy","brand":"Pilos","category":"Nabiał","price":2.09,"weight":"250 g","imageUrl":"/images/yogurt_fruit.png"},
+  {"name":"Masło extra","brand":"Pilos","category":"Nabiał","price":6.79,"weight":"200 g","imageUrl":"/images/butter.png"},
+  {"name":"Ser gouda","brand":"Pilos","category":"Nabiał","price":9.49,"weight":"300 g","imageUrl":"/images/gouda.png"},
+  {"name":"Mozzarella","brand":"Pilos","category":"Nabiał","price":2.89,"weight":"125 g","imageUrl":"/images/mozzarella.png"},
+  {"name":"Serek śmietankowy","brand":"Pilos","category":"Nabiał","price":3.69,"weight":"150 g","imageUrl":"/images/cream_cheese.png"},
+
+  {"name":"Chleb pszenny","brand":"Piekarnia Lidla","category":"Pieczywo","price":3.89,"weight":"500 g","imageUrl":"/images/bread.png"},
+  {"name":"Bułka kajzerka","brand":"Piekarnia Lidla","category":"Pieczywo","price":0.59,"weight":"1 szt","imageUrl":"/images/roll.png"},
+  {"name":"Bagietka","brand":"Piekarnia Lidla","category":"Pieczywo","price":2.19,"weight":"250 g","imageUrl":"/images/baguette.png"},
+
+  {"name":"Makaron penne","brand":"Combino","category":"Produkty suche","price":3.59,"weight":"500 g","imageUrl":"/images/pasta.png"},
+  {"name":"Ryż biały","brand":"Golden Sun","category":"Produkty suche","price":4.89,"weight":"1 kg","imageUrl":"/images/rice.png"},
+  {"name":"Kasza gryczana","brand":"Golden Sun","category":"Produkty suche","price":5.39,"weight":"1 kg","imageUrl":"/images/buckwheat.png"},
+  {"name":"Płatki owsiane","brand":"Crownfield","category":"Produkty suche","price":2.09,"weight":"500 g","imageUrl":"/images/oats.png"},
+  {"name":"Mąka pszenna","brand":"Belbake","category":"Produkty suche","price":3.39,"weight":"1 kg","imageUrl":"/images/flour.png"},
+  {"name":"Cukier biały","brand":"Sweet Valley","category":"Produkty suche","price":4.59,"weight":"1 kg","imageUrl":"/images/sugar.png"},
+  {"name":"Sól","brand":"Kania","category":"Produkty suche","price":1.79,"weight":"1 kg","imageUrl":"/images/salt.png"},
+
+  {"name":"Filet z kurczaka","brand":"Rzeźnik","category":"Mięso","price":17.29,"weight":"1 kg","imageUrl":"/images/chicken.png"},
+  {"name":"Mięso mielone","brand":"Rzeźnik","category":"Mięso","price":14.79,"weight":"500 g","imageUrl":"/images/mince.png"},
+  {"name":"Kiełbasa","brand":"Pikok","category":"Wędliny","price":10.29,"weight":"500 g","imageUrl":"/images/sausage.png"},
+  {"name":"Szynka","brand":"Pikok","category":"Wędliny","price":5.19,"weight":"150 g","imageUrl":"/images/ham.png"},
+
+  {"name":"Sok pomarańczowy","brand":"Solevita","category":"Napoje","price":8.19,"weight":"1 l","imageUrl":"/images/orange_juice.png"},
+  {"name":"Woda mineralna","brand":"Saguaro","category":"Napoje","price":1.69,"weight":"1.5 l","imageUrl":"/images/water.png"},
+  {"name":"Napój owsiany","brand":"Vemondo","category":"Napoje","price":6.29,"weight":"1 l","imageUrl":"/images/oat_drink.png"},
+  {"name":"Kawa mielona","brand":"Bellarom","category":"Napoje","price":13.49,"weight":"250 g","imageUrl":"/images/coffee.png"},
+  {"name":"Herbata","brand":"Lord Nelson","category":"Napoje","price":7.29,"weight":"100 g","imageUrl":"/images/tea.png"},
+
+  {"name":"Czekolada mleczna","brand":"Fin Carre","category":"Słodycze","price":3.29,"weight":"100 g","imageUrl":"/images/chocolate.png"},
+  {"name":"Ciastka maślane","brand":"Sondey","category":"Słodycze","price":5.19,"weight":"200 g","imageUrl":"/images/cookies.png"},
+  {"name":"Lody waniliowe","brand":"Bon Gelati","category":"Mrożonki","price":7.29,"weight":"1 l","imageUrl":"/images/icecream.png"},
+
+  {"name":"Pizza mrożona","brand":"Trattoria Alfredo","category":"Mrożonki","price":8.49,"weight":"350 g","imageUrl":"/images/pizza.png"},
+  {"name":"Frytki mrożone","brand":"Harvest Basket","category":"Mrożonki","price":6.19,"weight":"750 g","imageUrl":"/images/fries.png"},
+
+  {"name":"Ketchup","brand":"Kania","category":"Sosy","price":4.99,"weight":"560 g","imageUrl":"/images/ketchup.png"},
+  {"name":"Majonez","brand":"Kania","category":"Sosy","price":6.79,"weight":"400 ml","imageUrl":"/images/mayo.png"},
+  {"name":"Musztarda","brand":"Kania","category":"Sosy","price":2.79,"weight":"200 g","imageUrl":"/images/mustard.png"},
+
+  {"name":"Olej rzepakowy","brand":"Vita D'or","category":"Tłuszcze","price":9.79,"weight":"1 l","imageUrl":"/images/oil.png"},
+  {"name":"Masło klarowane","brand":"Pilos","category":"Tłuszcze","price":14.49,"weight":"500 g","imageUrl":"/images/ghee.png"}
 ]
