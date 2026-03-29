@@ -2,10 +2,13 @@ import express from 'express';
 import type { Express } from 'express';
 import productRoutes from './routes/productRoutes';
 import dailyRoutes from './routes/dailyRoutes';
+import cors from 'cors';
 
 const app: Express = express();
 
 app.use(express.json());
+
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.use('/products', productRoutes);
 app.use('/daily', dailyRoutes);

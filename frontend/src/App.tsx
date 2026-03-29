@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Index } from "./components/index/Index";
 import { Header } from "./components/header/Header";
+import { HigherLower } from "./components/higherLower/HigherLower";
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/classic" element={<Index />} />
             <Route path="/image" element={<Index />} />
-            <Route path="/higherlower" element={<Index />} />
+            <Route path="/higherlower" element={<HigherLower />} />
             <Route path="/infinite" element={<Index />} />
         </Routes>
     </BrowserRouter>
