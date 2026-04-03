@@ -3,6 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import styles from './HigherLower.module.scss';
 import { useAllProducts } from '../../hooks/useProducts';
 import type { Product } from '../../hooks/useProducts';
+import { API_URL } from '../../hooks/useProducts';
 
 type Verdict = 'higher' | 'lower' | 'equal' | null;
 
@@ -63,8 +64,10 @@ export const HigherLower = () => {
 
         setRightRevealed(true);
 
+        const leftPrice = Number(left.price);
+        const rightPrice = Number(right.price);
         const actualVerdict: Verdict =
-            right.price > left.price ? 'higher' : right.price < left.price ? 'lower' : 'equal';
+            rightPrice > leftPrice ? 'higher' : rightPrice < leftPrice ? 'lower' : 'equal';
 
         setVerdict(actualVerdict);
 
@@ -153,9 +156,7 @@ export const HigherLower = () => {
             </div>
         );
     }
-
     if (!left || !right) return null;
-
     return (
         <div className={styles.Wrapper}>
             <div className={styles.ScoreBar}>
@@ -166,6 +167,9 @@ export const HigherLower = () => {
             <div className={styles.Arena}>
 
                 <div className={`${styles.Card} ${styles.CardLeft}`}>
+                    {left.imageUrl && (
+                        <img src={`${API_URL}${left.imageUrl}`} alt={left.name} className={styles.ProductImage} />
+                    )}
                     <span className={styles.Label}>Produkt A</span>
                     <p className={styles.ProductName}>{left.name}</p>
                     <p className={styles.Brand}>{left.brand}</p>
@@ -206,6 +210,9 @@ export const HigherLower = () => {
                 </div>
 
                 <div className={`${styles.Card} ${styles.CardRight} ${rightRevealed ? styles.Revealed : ''}`}>
+                    {right.imageUrl && (
+                        <img src={`${API_URL}${right.imageUrl}`} alt={right.name} className={styles.ProductImage} />
+                    )}
                     <span className={styles.Label}>Produkt B</span>
                     <p className={styles.ProductName}>{right.name}</p>
                     <p className={styles.Brand}>{right.brand}</p>

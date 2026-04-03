@@ -63,6 +63,16 @@ $red: #e74c3c;
     border-color: $yellow;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba($yellow, 0.25);
   }
+
+  .ProductImage {
+    width: 100%;
+    max-width: 140px;
+    height: 140px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
 .Label {

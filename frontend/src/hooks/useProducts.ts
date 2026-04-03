@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000';
+export const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000';
 
 export interface Product {
     id: number;
@@ -9,6 +9,7 @@ export interface Product {
     category: string;
     weight: string;
     price: number;
+    imageUrl: string;
 }
 
 export interface ProductSearchResult {
