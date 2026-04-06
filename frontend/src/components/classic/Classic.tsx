@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './Classic.module.scss';
 import { useTodayDaily, fetchProductsBySearch, fetchProductByName } from '../../hooks/useDaily';
 import type { DailyProduct } from '../../hooks/useDaily';
+import { API_URL } from '../../hooks/useProducts';
+import hintImage from '../../assets/hint.png';
 
 const MAX_GUESSES = 15;
 
@@ -62,12 +64,14 @@ export const Classic = () => {
     const [lost, setLost] = useState(false);
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showHint, setShowHint] = useState(false);
     const [activeSuggestion, setActiveSuggestion] = useState(-1);
     const inputRef = useRef<HTMLInputElement>(null);
     const bottomRef = useRef<HTMLDivElement>(null);
 
     const guessedNames = guesses.map((g) => g.product.name.toLowerCase());
     const remaining = MAX_GUESSES - guesses.length;
+    const targetImage = target?.product_image?.image_url;
 
     useEffect(() => {
         if (guesses.length > 0) {
@@ -150,7 +154,7 @@ export const Classic = () => {
 
     if (isError) return (
         <div className={styles.Screen}>
-            <p className={styles.ErrorMsg}>Brak produktu dnia lub błąd API </p>
+            <p className={styles.ErrorMsg}>Brak produktu dnia lub błąd API</p>
         </div>
     );
 
@@ -166,10 +170,10 @@ export const Classic = () => {
                             className={`${styles.Dot} ${
                                 i < guesses.length
                                     ? guesses[i].result.name === 'correct' &&
-                                      guesses[i].result.brand === 'correct' &&
-                                      guesses[i].result.category === 'correct' &&
-                                      guesses[i].result.weight === 'correct' &&
-                                      guesses[i].result.price === 'correct'
+                                    guesses[i].result.brand === 'correct' &&
+                                    guesses[i].result.category === 'correct' &&
+                                    guesses[i].result.weight === 'correct' &&
+                                    guesses[i].result.price === 'correct'
                                         ? styles.DotWin
                                         : styles.DotUsed
                                     : ''
@@ -181,6 +185,24 @@ export const Classic = () => {
 
             {!won && !lost && (
                 <div className={styles.InputArea}>
+                    <button
+                        className={`${styles.HintBtn} ${guesses.length >= 5 ? styles.HintBtnActive : styles.HintBtnDisabled}`}
+                        onClick={() => guesses.length >= 5 && setShowHint(true)}
+                        disabled={guesses.length < 5}
+                    >
+                        <img src={hintImage} alt="Podpowiedź" style={{ width: '30px', height: '30px' }}/>
+                    </button>
+
+                    {showHint && (
+                        <div className={styles.HintImage}>
+                            <img
+                                src={targetImage ? `${API_URL}${targetImage}` : hintImage}
+                                alt={target?.name || 'hint'}
+                                className={targetImage ? styles.HintImgProduct : styles.HintImgFallback}
+                            />
+                        </div>
+                    )}
+
                     <div className={styles.InputWrap}>
                         <input
                             ref={inputRef}
@@ -224,30 +246,30 @@ export const Classic = () => {
                 <div className={styles.TableWrap}>
                     <table className={styles.Table}>
                         <thead>
-                            <tr>
-                                {COLUMNS.map((col) => (
-                                    <th key={col}>{col}</th>
-                                ))}
-                            </tr>
+                        <tr>
+                            {COLUMNS.map((col) => (
+                                <th key={col}>{col}</th>
+                            ))}
+                        </tr>
                         </thead>
                         <tbody>
-                            {guesses.map((row, i) => (
-                                <tr key={i} className={styles.GuessRow} style={{ animationDelay: `${i * 0.04}s` }}>
-                                    {KEYS.map((key) => (
-                                        <td
-                                            key={key}
-                                            className={`${styles.Cell} ${
-                                                row.result[key] === 'correct' ? styles.CellCorrect :
+                        {guesses.map((row, i) => (
+                            <tr key={i} className={styles.GuessRow} style={{ animationDelay: `${i * 0.04}s` }}>
+                                {KEYS.map((key) => (
+                                    <td
+                                        key={key}
+                                        className={`${styles.Cell} ${
+                                            row.result[key] === 'correct' ? styles.CellCorrect :
                                                 row.result[key] === 'wrong' ? styles.CellWrong :
-                                                styles.CellArrow
-                                            }`}
-                                        >
-                                            <span className={styles.CellValue}>{formatValue(key, row.product)}</span>
-                                            <DirectionIcon dir={row.result[key]} />
-                                        </td>
-                                    ))}
-                                </tr>
-                            ))}
+                                                    styles.CellArrow
+                                        }`}
+                                    >
+                                        <span className={styles.CellValue}>{formatValue(key, row.product)}</span>
+                                        <DirectionIcon dir={row.result[key]} />
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
                         </tbody>
                     </table>
                     <div ref={bottomRef} />

@@ -13,7 +13,9 @@ export interface DailyProduct {
     category: string;
     weight: string;
     price: number;
-    product_image?: ProductImage[];
+    product_image?: {
+        image_url: string;
+    } | null;
 }
 
 export interface DailyEntry {
@@ -24,23 +26,13 @@ export interface DailyEntry {
 
 const fetchTodayDaily = async (): Promise<DailyProduct> => {
     const res = await fetch(`${API_URL}/daily`);
-    if (!res.ok) throw new Error('Błąd pobierania produktu dnia');
+    if (!res.ok) throw new Error('Błąd pobierania');
     const data: DailyEntry[] = await res.json();
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const todayEntry = data.find((entry) => {
-        const entryDate = new Date(entry.product_date);
-        entryDate.setHours(0, 0, 0, 0);
-        return entryDate.getTime() === today.getTime();
-    });
-
-    if (!todayEntry) throw new Error('Brak produktu dnia na dziś');
-
+    if (!data.length) throw new Error('Brak produktów');
+    const latest = data[0];
     return {
-        ...todayEntry.product,
-        price: Number(todayEntry.product.price),
+        ...latest.product,
+        price: Number(latest.product.price),
     };
 };
 

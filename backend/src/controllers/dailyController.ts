@@ -4,17 +4,42 @@ import { DailyProductBody, DailyRandomBody } from '../types';
 
 export const getAllDaily = async (req: Request, res: Response) => {
     try {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const todayEntry = await prisma.daily_product.findFirst({
+            where: { product_date: today }
+        });
+
+        if (!todayEntry) {
+            const usedProducts = await prisma.daily_product.findMany({ select: { product_id: true } });
+            const usedIds = usedProducts.map(p => p.product_id);
+            const available = await prisma.product.findMany({
+                where: { id: { notIn: usedIds.length ? usedIds : [0] } }
+            });
+            if (available.length) {
+                const randomIndex = Math.floor(Math.random() * available.length);
+                await prisma.daily_product.create({
+                    data: {
+                        product_id: available[randomIndex].id,
+                        product_date: today
+                    }
+                });
+            }
+        }
+
+        const firstDayCurrentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        await prisma.daily_product.deleteMany({
+            where: { product_date: { lt: firstDayCurrentMonth } }
+        });
+
         const dailyProducts = await prisma.daily_product.findMany({
             include: {
                 product: {
-                    include: {
-                        product_image: true,
-                    },
-                },
+                    include: { product_image: true }
+                }
             },
-            orderBy: {
-                product_date: 'desc',
-            },
+            orderBy: { product_date: 'desc' }
         });
         res.json(dailyProducts);
     } catch (error) {
@@ -223,3 +248,11 @@ export const addImageGuess = async (req: Request, res: Response) => {
         console.error(error);
     }
 }
+
+export const cleanOldDaily = async () => {
+    const now = new Date();
+    const firstDayCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    await prisma.daily_product.deleteMany({
+        where: { product_date: { lt: firstDayCurrentMonth } }
+    });
+};

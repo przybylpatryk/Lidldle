@@ -3,6 +3,7 @@ import type { Express } from 'express';
 import productRoutes from './routes/productRoutes';
 import dailyRoutes from './routes/dailyRoutes';
 import { fileURLToPath } from 'url';
+import { cleanOldDaily} from "./controllers/dailyController";
 import cors from 'cors';
 import path from 'path';
 
@@ -22,6 +23,10 @@ app.use('/daily', dailyRoutes);
 app.use('*', (req, res) => {
     res.status(404).json({ error: 'Nie znaleziono endpointu' });
 });
+
+cleanOldDaily().catch((err) => {
+    console.log(err);
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
