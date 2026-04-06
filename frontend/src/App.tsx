@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Index } from "./components/index/Index";
 import { Header } from "./components/header/Header";
 import { HigherLower } from "./components/higherLower/HigherLower";
+import { Classic } from "./components/classic/Classic";
 
 function App() {
     return (
@@ -11,7 +12,7 @@ function App() {
         <Routes>
             //do zmiany elementy
             <Route path="/" element={<Index />} />
-            <Route path="/classic" element={<Index />} />
+            <Route path="/classic" element={<Classic />} />
             <Route path="/image" element={<Index />} />
             <Route path="/higherlower" element={<HigherLower />} />
             <Route path="/infinite" element={<Index />} />

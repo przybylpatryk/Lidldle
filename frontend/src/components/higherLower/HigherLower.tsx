@@ -130,7 +130,7 @@ export const HigherLower = () => {
                 <p className={styles.FinalScore}>
                     Twój wynik: <span>{score}</span>
                 </p>
-                <p className={styles.BestScore}>Rekord: {bestScore} 🏆</p>
+                <p className={styles.BestScore}>Rekord: {bestScore}</p>
 
                 {history.length > 0 && (
                     <div className={styles.History}>
@@ -161,14 +161,14 @@ export const HigherLower = () => {
         <div className={styles.Wrapper}>
             <div className={styles.ScoreBar}>
                 <span>Seria: <strong>{score}</strong></span>
-                <span>Rekord: <strong>{bestScore} 🏆</strong></span>
+                <span>Rekord: <strong>{bestScore} </strong></span>
             </div>
 
             <div className={styles.Arena}>
 
                 <div className={`${styles.Card} ${styles.CardLeft}`}>
                     {left.imageUrl && (
-                        <img src={`${API_URL}${left.imageUrl}`} alt={left.name} className={styles.ProductImage} />
+                        <img src={`http://localhost:3000${left.imageUrl}`} alt={left.name} className={styles.ProductImage} />
                     )}
                     <span className={styles.Label}>Produkt A</span>
                     <p className={styles.ProductName}>{left.name}</p>

@@ -35,7 +35,6 @@ export const getProductsBySearch = async (req: Request, res: Response) => {
             where: {
                 name:{
                     startsWith: search,
-                    mode: 'insensitive',
                 },
             },
             select: {

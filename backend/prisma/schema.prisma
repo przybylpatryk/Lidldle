@@ -14,6 +14,8 @@ model daily_image {
 model daily_product {
   product_id   Int      @id
   product_date DateTime @db.Date
+
+  product product @relation(fields: [product_id], references: [id])
 }
 
 model image_guesses {
@@ -29,6 +31,9 @@ model product {
   category String  @db.VarChar(50)
   weight   String  @db.VarChar(30)
   price    Decimal @db.Decimal(10, 2)
+
+  product_image product_image?
+  daily_product daily_product[]
 }
 
 model product_guesses {
@@ -43,5 +48,7 @@ model product_guesses {
 
 model product_image {
   product_id Int    @id
-  image_url  String @db.VarChar(50)
+  image_url  String @db.VarChar(255)
+
+  product product @relation(fields: [product_id], references: [id])
 }

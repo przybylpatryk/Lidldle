@@ -130,9 +130,9 @@ export const addRandomDaily = async (req: Request, res: Response) => {
         const randomIndex = Math.floor(Math.random() * availableProducts.length);
         const selectedProduct = availableProducts[randomIndex];
 
-        const date = product_date ? new Date(product_date) : new Date();
-        date.setHours(0, 0, 0, 0);
-
+        const now = product_date ? new Date(product_date) : new Date();
+        const date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        
         const dailyProduct = await prisma.daily_product.create({
             data: {
                 product_id: selectedProduct.id,
