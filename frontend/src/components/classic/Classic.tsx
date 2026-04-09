@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './Classic.module.scss';
-import { useTodayDaily, fetchProductsBySearch, fetchProductByName } from '../../hooks/useDaily';
+import { useTodayDaily, fetchProductsBySearch, fetchProductByName, fetchUserGuesses, saveGuess } from '../../hooks/useDaily';
 import type { DailyProduct } from '../../hooks/useDaily';
 import { API_URL } from '../../hooks/useProducts';
 import hintImage from '../../assets/hint.png';
+import { getUserId } from '../../utils/userId';
 
 const MAX_GUESSES = 15;
 
@@ -66,12 +67,51 @@ export const Classic = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showHint, setShowHint] = useState(false);
     const [activeSuggestion, setActiveSuggestion] = useState(-1);
+    const [initialized, setInitialized] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const bottomRef = useRef<HTMLDivElement>(null);
 
+    const userId = getUserId();
     const guessedNames = guesses.map((g) => g.product.name.toLowerCase());
     const remaining = MAX_GUESSES - guesses.length;
     const targetImage = target?.product_image?.image_url;
+
+    useEffect(() => {
+        if (!target || initialized) return;
+        const loadGuesses = async () => {
+            try {
+                const saved = await fetchUserGuesses(userId);
+                if (saved && saved.length) {
+                    const rows: GuessRow[] = saved.map((g: any) => {
+                        const product: DailyProduct = {
+                            id: g.product_id,
+                            name: g.name,
+                            brand: g.brand,
+                            category: g.category,
+                            weight: g.weight,
+                            price: typeof g.price === 'string' ? parseFloat(g.price) : g.price,
+                        };
+                        return {
+                            product,
+                            result: evaluateGuess(product, target!),
+                        };
+                    });
+                    setGuesses(rows);
+                    const lastRow = rows[rows.length - 1];
+                    const isWin = lastRow.result.name === 'correct' && lastRow.result.brand === 'correct' &&
+                        lastRow.result.category === 'correct' && lastRow.result.weight === 'correct' &&
+                        lastRow.result.price === 'correct';
+                    if (isWin) setWon(true);
+                    else if (rows.length >= MAX_GUESSES) setLost(true);
+                }
+            } catch (err) {
+                console.error('Błąd ładowania zgadywań', err);
+            } finally {
+                setInitialized(true);
+            }
+        };
+        loadGuesses();
+    }, [target, userId, initialized]);
 
     useEffect(() => {
         if (guesses.length > 0) {
@@ -132,13 +172,16 @@ export const Classic = () => {
             setGuesses(newGuesses);
             setInput('');
 
+            await saveGuess(userId, product);
+
             if (result.name === 'correct' && result.brand === 'correct' &&
                 result.category === 'correct' && result.weight === 'correct' && result.price === 'correct') {
                 setWon(true);
             } else if (newGuesses.length >= MAX_GUESSES) {
                 setLost(true);
             }
-        } catch {
+        } catch (err) {
+            console.error(err);
             setError('Nie znaleziono takiego produktu — sprawdź nazwę.');
         } finally {
             setIsSubmitting(false);

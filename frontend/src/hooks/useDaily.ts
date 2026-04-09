@@ -70,3 +70,27 @@ export const useTodayDaily = () =>
         staleTime: 1000 * 60 * 10,
         retry: 1,
     });
+
+export const fetchUserGuesses = async (userId: number): Promise<any[]> => {
+    const res = await fetch(`${API_URL}/daily/guesses/${userId}`);
+    if (!res.ok) throw new Error('Błąd pobierania zgadywań');
+    return res.json();
+};
+
+export const saveGuess = async (userId: number, product: DailyProduct) => {
+    const res = await fetch(`${API_URL}/daily/guesses`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            userId,
+            productId: product.id,
+            name: product.name,
+            brand: product.brand,
+            category: product.category,
+            weight: product.weight,
+            price: product.price,
+        })
+    });
+    if (!res.ok) throw new Error('Błąd zapisu zgadywania');
+    return res.json();
+};

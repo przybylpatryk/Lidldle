@@ -19,7 +19,8 @@ model daily_product {
 }
 
 model image_guesses {
-  user_id    Int    @id
+  id         Int    @id @default(autoincrement())
+  user_id    Int
   product_id Int
   name       String @db.VarChar(50)
 }
@@ -37,13 +38,15 @@ model product {
 }
 
 model product_guesses {
-  user_id    Int     @id
+  id         Int      @id @default(autoincrement())
+  user_id    Int
   product_id Int
-  name       String  @db.VarChar(50)
-  brand      String  @db.VarChar(50)
-  category   String  @db.VarChar(50)
-  weight     String  @db.VarChar(20)
-  price      Decimal @db.Decimal(10, 2)
+  name       String   @db.VarChar(50)
+  brand      String   @db.VarChar(50)
+  category   String   @db.VarChar(50)
+  weight     String   @db.VarChar(20)
+  price      Decimal  @db.Decimal(10, 2)
+  created_at DateTime @default(now())
 }
 
 model product_image {
