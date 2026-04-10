@@ -9,13 +9,13 @@ datasource db {
 model daily_image {
   product_id Int      @id
   image_date DateTime @db.Date
+  product    product  @relation(fields: [product_id], references: [id])
 }
 
 model daily_product {
   product_id   Int      @id
   product_date DateTime @db.Date
-
-  product product @relation(fields: [product_id], references: [id])
+  product      product  @relation(fields: [product_id], references: [id])
 }
 
 model image_guesses {
@@ -35,6 +35,7 @@ model product {
 
   product_image product_image?
   daily_product daily_product[]
+  daily_image   daily_image[]
 }
 
 model product_guesses {

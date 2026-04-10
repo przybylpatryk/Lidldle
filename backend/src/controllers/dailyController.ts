@@ -217,36 +217,32 @@ export const addGuess = async (req: Request, res: Response) => {
 
 export const getUserImageGuesses = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const idn = Number(id);
+    const userId = Number(id);
     const guesses = await prisma.image_guesses.findMany({
-        where: { user_id: idn}
-    })
+        where: { user_id: userId }
+    });
     res.json(guesses);
-}
+};
 
 export const addImageGuess = async (req: Request, res: Response) => {
     try {
-        const { name } = req.params;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        const { userId } = parseInt(req.params.userId);
-        const product = await prisma.product.findFirst({
-            where: { name: name },
-        })
-
+        const { userId, productId, name } = req.body;
+        if (!userId || !productId) {
+            return res.status(400).json({ error: 'Brak userId lub productId' });
+        }
         const guess = await prisma.image_guesses.create({
             data: {
                 user_id: userId,
-                product_id: product.id,
-                name: product.name,
+                product_id: productId,
+                name,
             }
-        })
-        res.json(guess);
-    }
-    catch (error) {
+        });
+        res.status(201).json(guess);
+    } catch (error) {
         console.error(error);
+        res.status(500).json({ error: 'Nie udało się zapisać zgadywania obrazkowego' });
     }
-}
+};
 
 export const cleanOldDaily = async () => {
     const now = new Date();
@@ -254,4 +250,48 @@ export const cleanOldDaily = async () => {
     await prisma.daily_product.deleteMany({
         where: { product_date: { lt: firstDayCurrentMonth } }
     });
+};
+
+export const getTodayImageDaily = async (req: Request, res: Response) => {
+    try {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        let todayEntry = await prisma.daily_image.findFirst({
+            where: { image_date: today },
+            include: { product: { include: { product_image: true } } }
+        });
+
+        if (!todayEntry) {
+            const usedProducts = await prisma.daily_image.findMany({ select: { product_id: true } });
+            const usedIds = usedProducts.map((p: { product_id: any; }) => p.product_id);
+            const available = await prisma.product.findMany({
+                where: { id: { notIn: usedIds.length ? usedIds : [0] } },
+                include: { product_image: true }
+            });
+            if (available.length) {
+                const randomIndex = Math.floor(Math.random() * available.length);
+                await prisma.daily_image.create({
+                    data: {
+                        product_id: available[randomIndex].id,
+                        image_date: today
+                    }
+                });
+            }
+        }
+
+        const firstDayCurrentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        await prisma.daily_image.deleteMany({
+            where: { image_date: { lt: firstDayCurrentMonth } }
+        });
+
+        const dailyImages = await prisma.daily_image.findMany({
+            include: { product: { include: { product_image: true } } },
+            orderBy: { image_date: 'desc' }
+        });
+        res.json(dailyImages);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Nie udało się pobrać daily_image' });
+    }
 };

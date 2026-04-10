@@ -4,13 +4,21 @@ import {
     addToDaily,
     deleteAllDaily,
     deleteDailyById,
-    addRandomDaily, getUserGuesses, deleteGuesses, deleteImageGuesses, addGuess, getUserImageGuesses, addImageGuess,
+    addRandomDaily,
+    getUserGuesses,
+    deleteGuesses,
+    deleteImageGuesses,
+    addGuess,
+    getUserImageGuesses,
+    addImageGuess,
+    getTodayImageDaily,
 } from '../controllers/dailyController';
 
 const router = Router();
 
 router.get('/', getAllDaily);
 router.get('/guesses/:id', getUserGuesses);
+router.get('/image', getTodayImageDaily);
 router.get('/imageGuesses/:id', getUserImageGuesses);
 router.post('/guesses', addGuess);
 router.post('/imageGuesses', addImageGuess);

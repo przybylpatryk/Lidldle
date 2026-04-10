@@ -4,6 +4,7 @@ import { Index } from "./components/index/Index";
 import { Header } from "./components/header/Header";
 import { HigherLower } from "./components/higherLower/HigherLower";
 import { Classic } from "./components/classic/Classic";
+import { Image} from "./components/image/Image.tsx";
 
 function App() {
     return (
@@ -13,7 +14,7 @@ function App() {
             //do zmiany elementy
             <Route path="/" element={<Index />} />
             <Route path="/classic" element={<Classic />} />
-            <Route path="/image" element={<Index />} />
+            <Route path="/image" element={<Image />} />
             <Route path="/higherlower" element={<HigherLower />} />
             <Route path="/infinite" element={<Index />} />
         </Routes>
