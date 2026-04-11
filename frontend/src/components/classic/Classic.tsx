@@ -140,6 +140,8 @@ export const Classic = () => {
         } else if (e.key === 'Enter') {
             if (activeSuggestion >= 0 && suggestions[activeSuggestion]) {
                 selectSuggestion(suggestions[activeSuggestion].name);
+            } else if (suggestions.length > 0) {
+                selectSuggestion(suggestions[0].name);
             } else {
                 submitGuess(input);
             }
