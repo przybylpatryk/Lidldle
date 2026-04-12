@@ -378,3 +378,148 @@ $red: #e74c3c;
   transition: filter 0.3s ease;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 768px) {
+  .Wrapper {
+    padding: 20px 12px 40px;
+    gap: 20px;
+  }
+
+  .Header h2 {
+    font-size: 1.6rem;
+  }
+
+  .Sub {
+    font-size: 0.8rem;
+  }
+
+  .Attempts {
+    gap: 4px;
+  }
+
+  .Dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .ImageContainer {
+    margin: 20px auto;
+  }
+
+  .BlurredImage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .InputWrap {
+    gap: 8px;
+  }
+
+  .Input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .SubmitBtn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+
+  .Suggestion {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .Remaining {
+    font-size: 0.75rem;
+  }
+
+  .TableWrap {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .Table thead th,
+  .Cell {
+    font-size: 0.7rem;
+    padding: 8px 6px;
+  }
+
+  .CellValue {
+    font-size: 0.7rem;
+  }
+
+  .IconCorrect, .IconWrong {
+    font-size: 0.9rem;
+  }
+
+  .Banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 20px;
+    gap: 10px;
+
+    > span {
+      font-size: 2rem;
+    }
+
+    > div strong {
+      font-size: 1rem;
+    }
+
+    > div p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .Screen {
+    font-size: 0.9rem;
+  }
+
+  .Spinner {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Wrapper {
+    padding: 16px 10px 30px;
+  }
+
+  .Header h2 {
+    font-size: 1.4rem;
+  }
+
+  .Dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .BlurredImage {
+    width: 180px;
+    height: 180px;
+  }
+
+  .Input {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .SubmitBtn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  .Cell {
+    padding: 6px 4px;
+  }
+
+  .CellValue {
+    font-size: 0.65rem;
+  }
+
+  .Banner {
+    padding: 14px 16px;
+  }
+}

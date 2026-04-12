@@ -489,3 +489,160 @@ $orange: #f39c12;
     to { transform: rotate(360deg); }
   }
 }
+
+@media (max-width: 768px) {
+  .Wrapper {
+    padding: 20px 12px 40px;
+    gap: 20px;
+  }
+
+  .Header h2 {
+    font-size: 1.6rem;
+  }
+
+  .Sub {
+    font-size: 0.8rem;
+  }
+
+  .Attempts {
+    gap: 4px;
+  }
+
+  .Dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .HintBtn {
+    width: 48px;
+    height: 48px;
+    margin: 8px auto;
+
+    img {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  .HintImage img {
+    max-width: 140px;
+    max-height: 140px;
+  }
+
+  .InputWrap {
+    gap: 8px;
+  }
+
+  .Input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .SubmitBtn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+
+  .Suggestion {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .Remaining {
+    font-size: 0.75rem;
+  }
+
+  .TableWrap {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .Table thead th,
+  .Cell {
+    font-size: 0.7rem;
+    padding: 8px 6px;
+    min-width: 70px;
+  }
+
+  .Cell:first-child {
+    min-width: 110px;
+  }
+
+  .CellValue {
+    font-size: 0.7rem;
+  }
+
+  .IconCorrect, .IconUp, .IconDown, .IconWrong {
+    font-size: 0.9rem;
+  }
+
+  .Banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 20px;
+    gap: 10px;
+
+    > span {
+      font-size: 2rem;
+    }
+
+    > div strong {
+      font-size: 1rem;
+    }
+
+    > div p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .Screen {
+    font-size: 0.9rem;
+  }
+
+  .Spinner {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Wrapper {
+    padding: 16px 10px 30px;
+  }
+
+  .Header h2 {
+    font-size: 1.4rem;
+  }
+
+  .Dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .HintBtn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .Input {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .SubmitBtn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  .Cell {
+    padding: 6px 4px;
+  }
+
+  .CellValue {
+    font-size: 0.65rem;
+  }
+
+  .Banner {
+    padding: 14px 16px;
+  }
+}

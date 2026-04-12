@@ -401,3 +401,122 @@ $red: #e74c3c;
     transform: scale(0.97);
   }
 }
+
+@media (max-width: 768px) {
+  .Wrapper {
+    padding: 20px 12px;
+    gap: 20px;
+  }
+
+  .ScoreBar {
+    gap: 20px;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ScoreBar strong {
+    font-size: 1.1rem;
+  }
+
+  .Card {
+    max-width: 280px;
+    padding: 20px 16px;
+  }
+
+  .Card .ProductImage {
+    max-width: 100px;
+    height: 100px;
+  }
+
+  .ProductName {
+    font-size: 1rem;
+  }
+
+  .Brand, .Category {
+    font-size: 0.7rem;
+  }
+
+  .PriceTag {
+    font-size: 1.5rem;
+  }
+
+  .Hidden {
+    font-size: 1.5rem;
+  }
+
+  .VsCircle {
+    width: 44px;
+    height: 44px;
+    font-size: 0.8rem;
+  }
+
+  .GuessBtn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+
+  .VerdictBadge {
+    font-size: 0.8rem;
+    padding: 6px 16px;
+  }
+
+  .Hint {
+    font-size: 0.8rem;
+  }
+
+  .History {
+    max-width: 90%;
+    padding: 16px;
+  }
+
+  .History li {
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .RestartBtn {
+    padding: 12px 40px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ScoreBar {
+    gap: 12px;
+    font-size: 0.8rem;
+  }
+
+  .Card {
+    max-width: 240px;
+    padding: 16px 12px;
+  }
+
+  .Card .ProductImage {
+    max-width: 80px;
+    height: 80px;
+  }
+
+  .ProductName {
+    font-size: 0.9rem;
+  }
+
+  .PriceTag {
+    font-size: 1.2rem;
+  }
+
+  .Hidden {
+    font-size: 1.2rem;
+  }
+
+  .VsCircle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.7rem;
+  }
+
+  .GuessBtn {
+    padding: 6px 16px;
+    font-size: 0.75rem;
+  }
+}

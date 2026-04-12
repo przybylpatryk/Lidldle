@@ -25,7 +25,6 @@ $orange: #f39c12;
   color: $white;
 }
 
-// ── Stats bar ─────────────────────────────────────────────
 .StatsBar {
   display: flex;
   gap: 32px;
@@ -55,7 +54,6 @@ $orange: #f39c12;
   color: $yellow;
 }
 
-// ── Header ────────────────────────────────────────────────
 .Header {
   text-align: center;
 
@@ -74,7 +72,6 @@ $orange: #f39c12;
   margin-top: 4px;
 }
 
-// ── Success banner ────────────────────────────────────────
 .SuccessBanner {
   display: flex;
   align-items: center;
@@ -139,7 +136,6 @@ $orange: #f39c12;
   }
 }
 
-// ── Input area ────────────────────────────────────────────
 .InputArea {
   display: flex;
   flex-direction: column;
@@ -257,7 +253,6 @@ $orange: #f39c12;
   font-weight: 600;
 }
 
-// ── Table ─────────────────────────────────────────────────
 .TableWrap {
   width: 100%;
   max-width: 900px;
@@ -350,7 +345,6 @@ $orange: #f39c12;
   50%       { transform: translateY(4px); }
 }
 
-// ── Loading / error ───────────────────────────────────────
 .Screen {
   min-height: 92vh;
   display: flex;
@@ -378,4 +372,156 @@ $orange: #f39c12;
   animation: spin 0.8s linear infinite;
 
   @keyframes spin { to { transform: rotate(360deg); } }
+}
+
+@media (max-width: 768px) {
+  .Wrapper {
+    padding: 20px 12px 40px;
+    gap: 20px;
+  }
+
+  .StatsBar {
+    gap: 16px;
+    padding: 10px 20px;
+  }
+
+  .StatValue {
+    font-size: 1.1rem;
+  }
+
+  .StatLabel {
+    font-size: 0.55rem;
+  }
+
+  .Header h2 {
+    font-size: 1.6rem;
+  }
+
+  .Sub {
+    font-size: 0.8rem;
+  }
+
+  .SuccessBanner {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px 20px;
+    gap: 10px;
+
+    > span {
+      font-size: 1.8rem;
+    }
+
+    > div strong {
+      font-size: 1rem;
+    }
+
+    > div p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .NextBtn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+
+  .InputWrap {
+    gap: 8px;
+  }
+
+  .Input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .SubmitBtn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+
+  .Actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .GuessCount, .SkipBtn {
+    font-size: 0.75rem;
+  }
+
+  .SkipBtn {
+    padding: 4px 12px;
+  }
+
+  .TableWrap {
+    overflow-x: auto;
+  }
+
+  .Table thead th,
+  .Cell {
+    font-size: 0.7rem;
+    padding: 8px 6px;
+    min-width: 70px;
+  }
+
+  .Cell:first-child {
+    min-width: 110px;
+  }
+
+  .CellValue {
+    font-size: 0.7rem;
+  }
+
+  .IconCorrect, .IconUp, .IconDown, .IconWrong {
+    font-size: 0.9rem;
+  }
+
+  .Screen {
+    font-size: 0.9rem;
+  }
+
+  .Spinner {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Wrapper {
+    padding: 16px 10px 30px;
+  }
+
+  .StatsBar {
+    gap: 12px;
+    padding: 8px 12px;
+  }
+
+  .StatValue {
+    font-size: 1rem;
+  }
+
+  .Header h2 {
+    font-size: 1.4rem;
+  }
+
+  .Input {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .SubmitBtn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  .Cell {
+    padding: 6px 4px;
+  }
+
+  .CellValue {
+    font-size: 0.65rem;
+  }
+
+  .SuccessBanner {
+    padding: 12px 16px;
+  }
 }

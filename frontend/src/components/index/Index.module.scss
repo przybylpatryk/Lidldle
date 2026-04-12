@@ -44,7 +44,6 @@
 
   overflow: hidden;
 
-  // 🔥 biały glow
   &:hover {
     border-color: #ffd400;
     box-shadow:
@@ -65,7 +64,6 @@
     color: #ffd400;
   }
 
-  // 🔥 efekt światła
   &::before {
     content: "";
     position: absolute;
@@ -89,5 +87,29 @@
 
   &:active {
     transform: scale(0.96);
+  }
+}
+
+@media (max-width: 768px) {
+  .Main {
+    gap: 16px;
+  }
+
+  .Btn {
+    padding: 14px 40px;
+    min-width: 200px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Main {
+    gap: 12px;
+  }
+
+  .Btn {
+    padding: 12px 30px;
+    min-width: 180px;
+    font-size: 14px;
   }
 }
