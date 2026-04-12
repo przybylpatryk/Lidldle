@@ -1,0 +1,19 @@
+Patryk:
+Przygotowanie dockera,
+zrobienie fixtures,
+baza danych,
+kontrolery,
+stylowanie,
+tryb image,
+testy
+
+-----------------
+
+Stanisław:
+baza danych,
+kontrolery,
+stylowanie,
+tryb classic,
+tryb higher/lower,
+tryb infinite,
+testy

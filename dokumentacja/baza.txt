@@ -1,0 +1,8 @@
+Baza danych składa się z 6 tableli:
+
+product - przechowuje dane produktów (nazwa, marka, kategoria, waga, cena)
+product_image - obrazy produktów (jeden produkt może mieć jeden obraz)
+daily_product - losowany produkt dnia dla trybu klasycznego (data i ID produktu)
+daily_image - losowany produkt dnia dla trybu obrazkowego (data i ID produktu).
+product_guesses - historia zgadywań użytkowników w trybie klasycznym (user_id, produkt, dane zgadnięte, timestamp)
+image_guesses - historia zgadywań w trybie obrazkowym (user_id, produkt, nazwa zgadnięta)
