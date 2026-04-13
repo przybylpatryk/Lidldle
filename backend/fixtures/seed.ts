@@ -4,6 +4,9 @@ import * as fs from "fs";
 
 async function main() {
     await prisma.product_image.deleteMany();
+    await prisma.daily_product.deleteMany();
+    await prisma.daily_image.deleteMany();
+
     await prisma.product.deleteMany();
 
     const fixturesPath = path.join(process.cwd(), "fixtures", "products.json");

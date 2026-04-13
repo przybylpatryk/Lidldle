@@ -5,7 +5,18 @@ import { ProductBody } from '../types';
 export const getAllProducts = async (req: Request, res: Response) => {
     try {
         const products = await prisma.product.findMany();
-        res.json(products);
+        const images = await prisma.product_image.findMany();
+
+        const imageMap = new Map(
+            images.map(img => [img.product_id, img.image_url])
+        );
+
+        const productsWithImages = products.map(p => ({
+            ...p,
+            imageUrl: imageMap.get(p.id) || null
+        }));
+
+        res.json(productsWithImages);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Nie udało się pobrać produktów' });
@@ -24,7 +35,6 @@ export const getProductsBySearch = async (req: Request, res: Response) => {
             where: {
                 name:{
                     startsWith: search,
-                    mode: 'insensitive',
                 },
             },
             select: {

@@ -1,0 +1,115 @@
+.Main {
+  background-image: url("../../assets/LIDL-logo-.png");
+  background-size: cover;
+  background-position: center;
+
+  height: 92vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 22px;
+
+  background-color: rgba(0, 0, 0, 0.65);
+  background-blend-mode: darken;
+}
+
+.Btn {
+  position: relative;
+
+  padding: 18px 60px;
+  min-width: 250px;
+
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+
+  background: linear-gradient(
+                  145deg,
+                  rgba(0, 40, 85, 0.95),
+                  rgba(0, 20, 50, 1)
+  );
+
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+
+  overflow: hidden;
+
+  &:hover {
+    border-color: #ffd400;
+    box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.8),
+            0 0 12px rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px) scale(1.05);
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  &::first-letter {
+    color: #ffd400;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+                    120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent
+    );
+    transform: skewX(-25deg);
+  }
+
+  &:hover::before {
+    left: 130%;
+    transition: 0.6s;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+@media (max-width: 768px) {
+  .Main {
+    gap: 16px;
+  }
+
+  .Btn {
+    padding: 14px 40px;
+    min-width: 200px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Main {
+    gap: 12px;
+  }
+
+  .Btn {
+    padding: 12px 30px;
+    min-width: 180px;
+    font-size: 14px;
+  }
+}

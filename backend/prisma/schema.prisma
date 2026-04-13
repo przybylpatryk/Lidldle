@@ -9,15 +9,18 @@ datasource db {
 model daily_image {
   product_id Int      @id
   image_date DateTime @db.Date
+  product    product  @relation(fields: [product_id], references: [id])
 }
 
 model daily_product {
   product_id   Int      @id
   product_date DateTime @db.Date
+  product      product  @relation(fields: [product_id], references: [id])
 }
 
 model image_guesses {
-  user_id    Int    @id
+  id         Int    @id @default(autoincrement())
+  user_id    Int
   product_id Int
   name       String @db.VarChar(50)
 }
@@ -29,19 +32,27 @@ model product {
   category String  @db.VarChar(50)
   weight   String  @db.VarChar(30)
   price    Decimal @db.Decimal(10, 2)
+
+  product_image product_image?
+  daily_product daily_product[]
+  daily_image   daily_image[]
 }
 
 model product_guesses {
-  user_id    Int     @id
+  id         Int      @id @default(autoincrement())
+  user_id    Int
   product_id Int
-  name       String  @db.VarChar(50)
-  brand      String  @db.VarChar(50)
-  category   String  @db.VarChar(50)
-  weight     String  @db.VarChar(20)
-  price      Decimal @db.Decimal(10, 2)
+  name       String   @db.VarChar(50)
+  brand      String   @db.VarChar(50)
+  category   String   @db.VarChar(50)
+  weight     String   @db.VarChar(20)
+  price      Decimal  @db.Decimal(10, 2)
+  created_at DateTime @default(now())
 }
 
 model product_image {
   product_id Int    @id
-  image_url  String @db.VarChar(50)
+  image_url  String @db.VarChar(255)
+
+  product product @relation(fields: [product_id], references: [id])
 }

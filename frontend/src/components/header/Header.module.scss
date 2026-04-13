@@ -1,0 +1,99 @@
+.Header {
+  background: linear-gradient(180deg, #003a8f 0%, #001f4d 100%);
+  color: white;
+  text-align: center;
+  padding: 18px 0 12px;
+  border-bottom: 3px solid #ffd400;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+
+  h1 {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    color: white;
+
+    &::first-letter {
+      color: #ffd400;
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      padding: 0;
+
+      li {
+        a {
+          color: rgba(255, 255, 255, 0.85);
+          text-decoration: none;
+          font-size: 0.95rem;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          padding: 6px 0;
+          position: relative;
+          transition: all 0.2s ease;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #ffd400;
+            transition: width 0.25s ease;
+          }
+
+          &:hover {
+            color: white;
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Header {
+    padding: 12px 0 8px;
+  }
+
+  .Header h1 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
+
+  nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  nav ul li a {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Header {
+    padding: 10px 0 6px;
+  }
+
+  nav ul {
+    gap: 12px;
+  }
+
+  nav ul li a {
+    font-size: 0.7rem;
+  }
+}
