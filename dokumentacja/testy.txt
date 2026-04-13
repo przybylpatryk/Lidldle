@@ -1,0 +1,2 @@
+by uruchomić testy dla backendu należy w folderze backend uzyc komendy "npm run test"
+by uruchomić testy dla frontendu należy w folderze frontend użyć komendy "npm run test"

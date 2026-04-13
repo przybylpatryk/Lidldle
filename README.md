@@ -1,4 +1,7 @@
-Lidldle to gra o zgadywaniu produktów z lidla. Dzieli się ona na 4 tryby: 
+By odpalić należy posiadać dockera, w katalogu projektu należy wpisać komende "docker compose up --build", 
+Strona będzie dostepna pod adresem localhost:5173
+
+Lidldle to gra o zgadywaniu produktów z lidla. Dzieli się ona na 4 tryby:
 
 Klasyczny - Codziennie inny produkt do zgadnięcia. Użytkownik ma 15 prób, 
 a po 5 próbach otrzymuje podpowiedź.

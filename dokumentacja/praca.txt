@@ -1,9 +1,10 @@
 Patryk:
-Przygotowanie dockera,
-zrobienie fixtures,
+docker,
+fixtures,
 baza danych,
 kontrolery,
 stylowanie,
+tryb classic,
 tryb image,
 testy
 
@@ -12,6 +13,7 @@ testy
 Stanisław:
 baza danych,
 kontrolery,
+ścieżki,
 stylowanie,
 tryb classic,
 tryb higher/lower,

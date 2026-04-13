@@ -7,7 +7,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest --reporter=verbose",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage"
   },

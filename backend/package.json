@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix ",
-    "test": "vitest",
+    "test": "vitest --reporter=verbose",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage"
