@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba5bccda-2c9f-4ebe-beb2-e372e0969596" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/dailyController.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/dailyController.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/productController.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/productController.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/higherLower/HigherLower.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/higherLower/HigherLower.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/infinite/Infinite.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/infinite/Infinite.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.node.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;przybylpatryk&quot;,
+      &quot;author&quot;: &quot;przybylpatryk&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/przybylpatryk/Lidldle.git&quot;,
+    &quot;accountId&quot;: &quot;026cebc9-4fec-4fd7-83ec-4d4740bb0bc5&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="3AzmQodPUF9YPaxlKjkcLltfMrj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Staszek\\WebstormProjects\\Lidldle\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28238.10" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba5bccda-2c9f-4ebe-beb2-e372e0969596" name="Changes" comment="" />
+      <created>1773603760754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773603760754</updated>
+      <workItem from="1773603762191" duration="3290000" />
+      <workItem from="1773607092155" duration="1198000" />
+      <workItem from="1773608494866" duration="155000" />
+      <workItem from="1774206197087" duration="148000" />
+      <workItem from="1774206356991" duration="603000" />
+      <workItem from="1774207484538" duration="1507000" />
+      <workItem from="1774813522302" duration="5468000" />
+      <workItem from="1775418155885" duration="3527000" />
+      <workItem from="1775423827222" duration="577000" />
+      <workItem from="1775473413425" duration="1354000" />
+      <workItem from="1775475569663" duration="2332000" />
+      <workItem from="1775478061548" duration="335000" />
+      <workItem from="1775478821706" duration="277000" />
+      <workItem from="1775486127134" duration="1517000" />
+      <workItem from="1775917254704" duration="405000" />
+      <workItem from="1775918307406" duration="2446000" />
+      <workItem from="1775936101231" duration="296000" />
+      <workItem from="1775996855022" duration="7910000" />
+      <workItem from="1776009406943" duration="3862000" />
+      <workItem from="1776099178839" duration="940000" />
+    </task>
+    <task id="LOCAL-00001" summary="added a search by name function">
+      <option name="closed" value="true" />
+      <created>1774208750567</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774208750567</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/backend/generated/prisma/client.d.ts" />
+        <option value="$PROJECT_DIR$/backend/generated/prisma/client.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added guessing-related functions and ability to get random product" />
+    <MESSAGE value="added a search by name function" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a search by name function" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/vitest.config.ts</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
