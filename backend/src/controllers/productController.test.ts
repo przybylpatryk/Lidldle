@@ -1,7 +1,7 @@
 import { describe, test, expect, beforeEach, vi } from 'vitest';
 import { Request, Response } from 'express';
 import { prisma } from '../../lib/prisma.js';
-import { getProductById, createProduct, deleteProduct, getProductsBySearch } from './productController.js';
+import { getProductById, createProduct, getProductsBySearch } from './productController.js';
 
 vi.mock('../../lib/prisma.js', () => ({
     prisma: {

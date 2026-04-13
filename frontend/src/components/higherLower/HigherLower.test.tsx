@@ -35,20 +35,16 @@ describe('HigherLower', () => {
     test('kliknięcie Wyżej pokazuje werdykt', async () => {
         render(<HigherLower />, { wrapper });
 
-        // Poczekaj na VS
         const vsElement = await screen.findByText('VS');
         expect(vsElement).toBeInTheDocument();
 
-        // Sprawdź czy przyciski są
         const higherBtn = screen.getByText('▲ Wyżej');
         const lowerBtn = screen.getByText('▼ Niżej');
         expect(higherBtn).toBeInTheDocument();
         expect(lowerBtn).toBeInTheDocument();
 
-        // Kliknij Wyżej
         fireEvent.click(higherBtn);
 
-        // Sprawdź czy pojawił się JAKIKOLWIEK werdykt
         const verdict = await screen.findByText(/Dobrze|Błąd/i, {}, { timeout: 2000 });
         expect(verdict).toBeInTheDocument();
     });

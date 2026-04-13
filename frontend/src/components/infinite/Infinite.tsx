@@ -157,7 +157,6 @@ export const Infinite = () => {
             return;
         }
 
-        // Znajdź produkt po nazwie z allProducts
         const found = allProducts?.find(
             p => p.name.trim().toLowerCase() === name.trim().toLowerCase()
         );
