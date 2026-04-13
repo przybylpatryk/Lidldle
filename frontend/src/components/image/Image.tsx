@@ -75,7 +75,13 @@ export const Image = () => {
             try {
                 const saved = await fetchImageUserGuesses(userId);
                 if (saved && saved.length) {
-                    const rows: GuessRow[] = saved.map((g: any) => {
+                    const today = new Date().toDateString();
+                    const filtered = saved.filter((g: any) => {
+                        const guessDate = new Date(g.created_at).toDateString();
+                        return guessDate === today;
+                    });
+                    filtered.sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+                    const rows: GuessRow[] = filtered.map((g: any) => {
                         const product: ImageDailyProduct = {
                             id: g.product_id,
                             name: g.name,
@@ -91,11 +97,8 @@ export const Image = () => {
                     });
                     setGuesses(rows);
                     const lastRow = rows[rows.length - 1];
-                    if (lastRow.result.name === 'correct') {
-                        setWon(true);
-                    } else if (rows.length >= MAX_GUESSES) {
-                        setLost(true);
-                    }
+                    if (lastRow?.result.name === 'correct') setWon(true);
+                    else if (rows.length >= MAX_GUESSES) setLost(true);
                 }
             } catch (err) {
                 console.error('Błąd ładowania zgadywań', err);

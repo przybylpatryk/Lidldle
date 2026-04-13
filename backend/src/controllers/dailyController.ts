@@ -257,7 +257,7 @@ export const getTodayImageDaily = async (req: Request, res: Response) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        let todayEntry = await prisma.daily_image.findFirst({
+        const todayEntry = await prisma.daily_image.findFirst({
             where: { image_date: today },
             include: { product: { include: { product_image: true } } }
         });
@@ -294,4 +294,16 @@ export const getTodayImageDaily = async (req: Request, res: Response) => {
         console.error(error);
         res.status(500).json({ error: 'Nie udało się pobrać daily_image' });
     }
+};
+
+export const cleanOldGuesses = async () => {
+    const now = new Date();
+    const firstDayCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+
+    const deletedProduct = await prisma.product_guesses.deleteMany({
+        where: { created_at: { lt: firstDayCurrentMonth } }
+    });
+    const deletedImage = await prisma.image_guesses.deleteMany({
+        where: { created_at: { lt: firstDayCurrentMonth } }
+    });
 };

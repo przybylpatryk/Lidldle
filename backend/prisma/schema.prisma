@@ -19,10 +19,11 @@ model daily_product {
 }
 
 model image_guesses {
-  id         Int    @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   user_id    Int
   product_id Int
-  name       String @db.VarChar(50)
+  name       String   @db.VarChar(50)
+  created_at DateTime @default(now())
 }
 
 model product {
